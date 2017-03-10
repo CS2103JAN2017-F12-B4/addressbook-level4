@@ -46,7 +46,7 @@ public class TypicalTestTasks {
     public static void loadAddressBookWithSampleData(TodoList ab) {
         for (TestTask person : new TypicalTestTasks().getTypicalPersons()) {
             try {
-                ab.addPerson(new Task(person));
+                ab.addTask(new Task(person));
             } catch (UniqueTaskList.DuplicatePersonException e) {
                 assert false : "not possible";
             }

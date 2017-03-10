@@ -83,7 +83,7 @@ public class TodoList implements ReadOnlyTodoList {
      *
      * @throws UniqueTaskList.DuplicatePersonException if an equivalent person already exists.
      */
-    public void addPerson(Task p) throws UniqueTaskList.DuplicatePersonException {
+    public void addTask(Task p) throws UniqueTaskList.DuplicatePersonException {
         syncMasterTagListWith(p);
         persons.add(p);
     }
@@ -184,4 +184,6 @@ public class TodoList implements ReadOnlyTodoList {
         // use this method for custom fields hashing instead of implementing your own
         return Objects.hash(persons, tags);
     }
+
+
 }
