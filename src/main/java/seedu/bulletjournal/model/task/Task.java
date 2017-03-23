@@ -6,35 +6,38 @@ import seedu.bulletjournal.commons.util.CollectionUtil;
 import seedu.bulletjournal.model.tag.UniqueTagList;
 
 /**
- * Represents a Person in the address book.
- * Guarantees: details are present and not null, field values are validated.
+ * Represents a Person in the address book. Guarantees: details are present and
+ * not null, field values are validated.
  */
 public class Task implements ReadOnlyTask {
 
     private TaskName taskName;
-    private DueDate dueDate;
+
+    /**
+     * @author A0127826Y
+     */
+    private DateTime deadline;
     private Status status;
-    private BeginDate beginDate;
 
     private UniqueTagList tags;
 
     /**
      * Every field must be present and not null.
      */
-    public Task(TaskName taskName, DueDate dueDate, Status status, BeginDate beginDate, UniqueTagList tags) {
-        assert !CollectionUtil.isAnyNull(taskName, dueDate, status, beginDate, tags);
+    public Task(TaskName taskName, DateTime deadline, Status status, UniqueTagList tags) {
+        assert !CollectionUtil.isAnyNull(taskName, deadline, status, tags);
         this.taskName = taskName;
-        this.dueDate = dueDate;
+        this.deadline = deadline;
         this.status = status;
-        this.beginDate = beginDate;
-        this.tags = new UniqueTagList(tags); // protect internal tags from changes in the arg list
+        this.tags = new UniqueTagList(tags); // protect internal tags from
+                                             // changes in the arg list
     }
 
     /**
      * Creates a copy of the given ReadOnlyPerson.
      */
     public Task(ReadOnlyTask source) {
-        this(source.getTaskName(), source.getPhone(), source.getStatus(), source.getAddress(), source.getTags());
+        this(source.getTaskName(), source.getEndDate(), source.getStatus(), source.getTags());
     }
 
     public void setName(TaskName taskName) {
@@ -47,17 +50,24 @@ public class Task implements ReadOnlyTask {
         return taskName;
     }
 
-    public void setPhone(DueDate dueDate) {
+    /**
+     * @author A0127826Y
+     */
+    public void setDeadline(DateTime dueDate) {
         assert dueDate != null;
-        this.dueDate = dueDate;
+        this.deadline = dueDate;
     }
+
+    /**
+     * @author A0127826Y
+     */
 
     @Override
-    public DueDate getPhone() {
-        return dueDate;
+    public DateTime getEndDate() {
+        return deadline;
     }
 
-    public void setEmail(Status status) {
+    public void setStatus(Status status) {
         assert status != null;
         this.status = status;
     }
@@ -65,16 +75,6 @@ public class Task implements ReadOnlyTask {
     @Override
     public Status getStatus() {
         return status;
-    }
-
-    public void setAddress(BeginDate beginDate) {
-        assert beginDate != null;
-        this.beginDate = beginDate;
-    }
-
-    @Override
-    public BeginDate getAddress() {
-        return beginDate;
     }
 
     @Override
@@ -96,9 +96,8 @@ public class Task implements ReadOnlyTask {
         assert replacement != null;
 
         this.setName(replacement.getTaskName());
-        this.setPhone(replacement.getPhone());
-        this.setEmail(replacement.getStatus());
-        this.setAddress(replacement.getAddress());
+        this.setDeadline(replacement.getEndDate());
+        this.setStatus(replacement.getStatus());
         this.setTags(replacement.getTags());
     }
 
@@ -106,13 +105,14 @@ public class Task implements ReadOnlyTask {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof ReadOnlyTask // instanceof handles nulls
-                && this.isSameStateAs((ReadOnlyTask) other));
+                        && this.isSameStateAs((ReadOnlyTask) other));
     }
 
     @Override
     public int hashCode() {
-        // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(taskName, dueDate, status, beginDate, tags);
+        // use this method for custom fields hashing instead of implementing
+        // your own
+        return Objects.hash(taskName, deadline, status, tags);
     }
 
     @Override

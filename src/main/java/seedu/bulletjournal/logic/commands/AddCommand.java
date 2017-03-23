@@ -7,8 +7,7 @@ import seedu.bulletjournal.commons.exceptions.IllegalValueException;
 import seedu.bulletjournal.logic.commands.exceptions.CommandException;
 import seedu.bulletjournal.model.tag.Tag;
 import seedu.bulletjournal.model.tag.UniqueTagList;
-import seedu.bulletjournal.model.task.BeginDate;
-import seedu.bulletjournal.model.task.DueDate;
+import seedu.bulletjournal.model.task.DateTime;
 import seedu.bulletjournal.model.task.Status;
 import seedu.bulletjournal.model.task.Task;
 import seedu.bulletjournal.model.task.TaskName;
@@ -42,8 +41,8 @@ public class AddCommand extends Command {
         for (String tagName : tags) {
             tagSet.add(new Tag(tagName));
         }
-        this.toAdd = new Task(new TaskName(taskname), new DueDate(duedate), new Status(status),
-                new BeginDate(begindate), new UniqueTagList(tagSet));
+        this.toAdd = new Task(new TaskName(taskname), new DateTime(duedate), new Status(status),
+                new UniqueTagList(tagSet));
     }
 
     @Override

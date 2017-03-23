@@ -4,46 +4,48 @@ import seedu.bulletjournal.model.tag.UniqueTagList;
 
 /**
  * A read-only immutable interface for a Person in the addressbook.
- * Implementations should guarantee: details are present and not null, field values are validated.
+ * Implementations should guarantee: details are present and not null, field
+ * values are validated.
  */
 public interface ReadOnlyTask {
 
     TaskName getTaskName();
-    DueDate getPhone();
-    Status getStatus();
-    BeginDate getAddress();
 
+    Status getStatus();
 
     /**
-     * The returned TagList is a deep copy of the internal TagList,
-     * changes on the returned list will not affect the person's internal tags.
+     * @author A0127826Y
+     */
+    DateTime getEndDate();
+
+    /**
+     * The returned TagList is a deep copy of the internal TagList, changes on
+     * the returned list will not affect the person's internal tags.
      */
     UniqueTagList getTags();
 
     /**
-     * Returns true if both have the same state. (interfaces cannot override .equals)
+     * Returns true if both have the same state. (interfaces cannot override
+     * .equals)
      */
     default boolean isSameStateAs(ReadOnlyTask other) {
         return other == this // short circuit if same object
                 || (other != null // this is first to avoid NPE below
-                && other.getTaskName().equals(this.getTaskName()) // state checks here onwards
-                && other.getPhone().equals(this.getPhone())
-                && other.getStatus().equals(this.getStatus())
-                && other.getAddress().equals(this.getAddress()));
+                        && other.getTaskName().equals(this.getTaskName()) // state
+                                                                          // checks
+                                                                          // here
+                                                                          // onwards
+                        && other.getEndDate().equals(this.getEndDate()) && other.getStatus().equals(this.getStatus()));
     }
 
     /**
-     * Formats the person as text, showing all contact details.
+     * TODO Formats the task as text, showing all contact details.
+     *
+     * @author A0127826Y
      */
     default String getAsText() {
         final StringBuilder builder = new StringBuilder();
-        builder.append(getTaskName())
-                .append(" Phone: ")
-                .append(getPhone())
-                .append(" Email: ")
-                .append(getStatus())
-                .append(" Address: ")
-                .append(getAddress())
+        builder.append(getTaskName()).append(" Deadline: ").append(getEndDate()).append(" Status: ").append(getStatus())
                 .append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();
