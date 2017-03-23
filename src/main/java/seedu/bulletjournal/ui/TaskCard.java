@@ -18,11 +18,11 @@ public class TaskCard extends UiPart<Region> {
     @FXML
     private Label id;
     @FXML
-    private Label phone;
+    private Label deadline;
     @FXML
     private Label address;
     @FXML
-    private Label email;
+    private Label status;
     @FXML
     private FlowPane tags;
 
@@ -30,9 +30,8 @@ public class TaskCard extends UiPart<Region> {
         super(FXML);
         name.setText(task.getTaskName().fullName);
         id.setText(displayedIndex + ". ");
-        phone.setText(task.getPhone().value);
-        address.setText(task.getAddress().value);
-        email.setText(task.getStatus().value);
+        deadline.setText(task.getEndDate().toString());
+        status.setText(task.getStatus().value);
         initTags(task);
     }
 

@@ -7,8 +7,7 @@ import seedu.bulletjournal.commons.core.Messages;
 import seedu.bulletjournal.commons.util.CollectionUtil;
 import seedu.bulletjournal.logic.commands.exceptions.CommandException;
 import seedu.bulletjournal.model.tag.UniqueTagList;
-import seedu.bulletjournal.model.task.BeginDate;
-import seedu.bulletjournal.model.task.DueDate;
+import seedu.bulletjournal.model.task.DateTime;
 import seedu.bulletjournal.model.task.ReadOnlyTask;
 import seedu.bulletjournal.model.task.Status;
 import seedu.bulletjournal.model.task.Task;
@@ -22,15 +21,15 @@ public class EditCommand extends Command {
 
     public static final String COMMAND_WORD = "edit";
 
-    //CODESTYLE.OFF: RuleName
+    // CODESTYLE.OFF: RuleName
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the task identified "
             + "by the index number used in the last task listing. "
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: INDEX (must be a positive integer) "
-            + "[TASKNAME] [d/DUEDATE] [s/STATUS] [b/BEGINDATE ] [t/TAG]...\n"
-            + "Example: " + COMMAND_WORD + " 1 d/91234567 s/undone";
-    //CODESTYLE.ON: RuleName
-    public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Task: %1$s";
+            + "[TASKNAME] [d/DateTime] [s/STATUS] [b/BEGINDATE ] [t/TAG]...\n" + "Example: " + COMMAND_WORD
+            + " 1 d/91234567 s/undone";
+    // CODESTYLE.ON: RuleName
+    public static final String MESSAGE_EDIT_TASK_SUCCESS = "Edited Task: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_TASK = "This task already exists in the todo list.";
 
@@ -70,7 +69,7 @@ public class EditCommand extends Command {
             throw new CommandException(MESSAGE_DUPLICATE_TASK);
         }
         model.updateFilteredListToShowAll();
-        return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, taskToEdit));
+        return new CommandResult(String.format(MESSAGE_EDIT_TASK_SUCCESS, taskToEdit));
     }
 
     /**
@@ -79,14 +78,13 @@ public class EditCommand extends Command {
      */
     private static Task createEditedTask(ReadOnlyTask taskToEdit, EditTaskDescriptor editTaskDescriptor) {
         assert taskToEdit != null;
-
+       
         TaskName updatedName = editTaskDescriptor.getTaskName().orElseGet(taskToEdit::getTaskName);
-        DueDate updatedPhone = editTaskDescriptor.getPhone().orElseGet(taskToEdit::getPhone);
-        Status updatedEmail = editTaskDescriptor.getStatus().orElseGet(taskToEdit::getStatus);
-        BeginDate updatedAddress = editTaskDescriptor.getAddress().orElseGet(taskToEdit::getAddress);
+        DateTime updatedDeadline = editTaskDescriptor.getDeadline().orElseGet(taskToEdit::getEndDate);
+        Status updatedStatus = editTaskDescriptor.getStatus().orElseGet(taskToEdit::getStatus);
         UniqueTagList updatedTags = editTaskDescriptor.getTags().orElseGet(taskToEdit::getTags);
 
-        return new Task(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags);
+        return new Task(updatedName, updatedDeadline, updatedStatus, updatedTags);
     }
 
     /**
@@ -95,9 +93,8 @@ public class EditCommand extends Command {
      */
     public static class EditTaskDescriptor {
         private Optional<TaskName> taskName = Optional.empty();
-        private Optional<DueDate> dueDate = Optional.empty();
+        private Optional<DateTime> deadline = Optional.empty();
         private Optional<Status> status = Optional.empty();
-        private Optional<BeginDate> beginDate = Optional.empty();
         private Optional<UniqueTagList> tags = Optional.empty();
 
         public EditTaskDescriptor() {
@@ -105,9 +102,8 @@ public class EditCommand extends Command {
 
         public EditTaskDescriptor(EditTaskDescriptor toCopy) {
             this.taskName = toCopy.getTaskName();
-            this.dueDate = toCopy.getPhone();
+            this.deadline = toCopy.getDeadline();
             this.status = toCopy.getStatus();
-            this.beginDate = toCopy.getAddress();
             this.tags = toCopy.getTags();
         }
 
@@ -115,7 +111,7 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyPresent(this.taskName, this.dueDate, this.status, this.beginDate, this.tags);
+            return CollectionUtil.isAnyPresent(this.taskName, this.deadline, this.status, this.tags);
         }
 
         public void setName(Optional<TaskName> taskName) {
@@ -127,13 +123,13 @@ public class EditCommand extends Command {
             return taskName;
         }
 
-        public void setPhone(Optional<DueDate> dueDate) {
-            assert dueDate != null;
-            this.dueDate = dueDate;
+        public void setDeadline(Optional<DateTime> deadline) {
+            assert deadline != null;
+            this.deadline = deadline;
         }
 
-        public Optional<DueDate> getPhone() {
-            return dueDate;
+        public Optional<DateTime> getDeadline() {
+            return deadline;
         }
 
         public void setEmail(Optional<Status> status) {
@@ -143,15 +139,6 @@ public class EditCommand extends Command {
 
         public Optional<Status> getStatus() {
             return status;
-        }
-
-        public void setAddress(Optional<BeginDate> beginDate) {
-            assert beginDate != null;
-            this.beginDate = beginDate;
-        }
-
-        public Optional<BeginDate> getAddress() {
-            return beginDate;
         }
 
         public void setTags(Optional<UniqueTagList> tags) {

@@ -3,7 +3,8 @@ package seedu.bulletjournal.logic.parser;
 /**
  * Provides variations of commands Note: hard-coded for v0.2, will implement nlp
  * for future versions
- * @author Tu An - arishuynhvan
+ * 
+ * @author A0127826Y
  */
 
 public class FlexibleCommand {
@@ -14,8 +15,10 @@ public class FlexibleCommand {
         "help helps h manual instruction instructions", "list lists l ls display displays",
         "select selects s choose chooses" };
 
+
     /**
      * Constructor must take in a valid string input
+     * 
      * @param cfu
      */
     public FlexibleCommand(String cfu) {

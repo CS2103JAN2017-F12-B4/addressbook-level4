@@ -1,8 +1,7 @@
 package seedu.bulletjournal.testutil;
 
 import seedu.bulletjournal.model.tag.UniqueTagList;
-import seedu.bulletjournal.model.task.BeginDate;
-import seedu.bulletjournal.model.task.DueDate;
+import seedu.bulletjournal.model.task.DateTime;
 import seedu.bulletjournal.model.task.ReadOnlyTask;
 import seedu.bulletjournal.model.task.Status;
 import seedu.bulletjournal.model.task.TaskName;
@@ -13,9 +12,8 @@ import seedu.bulletjournal.model.task.TaskName;
 public class TestTask implements ReadOnlyTask {
 
     private TaskName taskName;
-    private BeginDate beginDate;
     private Status status;
-    private DueDate dueDate;
+    private DateTime dueDate;
     private UniqueTagList tags;
 
     public TestTask() {
@@ -27,9 +25,8 @@ public class TestTask implements ReadOnlyTask {
      */
     public TestTask(TestTask taskToCopy) {
         this.taskName = taskToCopy.getTaskName();
-        this.dueDate = taskToCopy.getPhone();
+        this.dueDate = taskToCopy.getEndDate();
         this.status = taskToCopy.getStatus();
-        this.beginDate = taskToCopy.getAddress();
         this.tags = taskToCopy.getTags();
     }
 
@@ -37,15 +34,11 @@ public class TestTask implements ReadOnlyTask {
         this.taskName = taskName;
     }
 
-    public void setAddress(BeginDate beginDate) {
-        this.beginDate = beginDate;
-    }
-
     public void setEmail(Status status) {
         this.status = status;
     }
 
-    public void setPhone(DueDate dueDate) {
+    public void setDeadline(DateTime dueDate) {
         this.dueDate = dueDate;
     }
 
@@ -59,18 +52,13 @@ public class TestTask implements ReadOnlyTask {
     }
 
     @Override
-    public DueDate getPhone() {
+    public DateTime getEndDate() {
         return dueDate;
     }
 
     @Override
     public Status getStatus() {
         return status;
-    }
-
-    @Override
-    public BeginDate getAddress() {
-        return beginDate;
     }
 
     @Override
@@ -82,16 +70,18 @@ public class TestTask implements ReadOnlyTask {
     public String toString() {
         return getAsText();
     }
-/**
- * Assume addCommand is one of the valid add commands as defined in FlexibleCommand class
- * @param command
- * @return
- */
+
+    /**
+     * Assume addCommand is one of the valid add commands as defined in
+     * FlexibleCommand class
+     *
+     * @param command
+     * @return
+     */
     public String getAddCommand(String addCommand) {
         StringBuilder sb = new StringBuilder();
         sb.append(addCommand + this.getTaskName().fullName + " ");
-        sb.append("b/" + this.getAddress().value + " ");
-        sb.append("d/" + this.getPhone().value + " ");
+        sb.append("d/" + this.getEndDate().toString() + " ");
         sb.append("s/" + this.getStatus().value + " ");
         this.getTags().asObservableList().stream().forEach(s -> sb.append("t/" + s.tagName + " "));
         return sb.toString();

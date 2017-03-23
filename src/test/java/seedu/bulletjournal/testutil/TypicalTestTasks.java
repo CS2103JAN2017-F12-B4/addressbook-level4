@@ -15,27 +15,26 @@ public class TypicalTestTasks {
 
     public TypicalTestTasks() {
         try {
-            assignment = new TaskBuilder().withTaskName("Assignment for CS2103")
-                    .withBeginDate("123, Jurong West Ave 6, #08-111").withStatus("undone")
-                    .withDueDate("85355255").withTags("friends").build();
-            buymilk = new TaskBuilder().withTaskName("Buy milk").withBeginDate("311, Clementi Ave 2, #02-25")
-                    .withStatus("done").withDueDate("98765432").withTags("owesMoney", "friends").build();
-            creatework = new TaskBuilder().withTaskName("Create more work").withDueDate("95352563")
-                    .withStatus("done").withBeginDate("wall street").build();
-            dumpmilk = new TaskBuilder().withTaskName("Dump milk").withDueDate("87652533")
-                    .withStatus("undone").withBeginDate("10th street").build();
-            eatleftovers = new TaskBuilder().withTaskName("Eat leftovers").withDueDate("9482224")
-                    .withStatus("done").withBeginDate("michegan ave").build();
-            findsocks = new TaskBuilder().withTaskName("Find socks").withDueDate("9482427")
-                    .withStatus("undone").withBeginDate("little tokyo").build();
-            getclothes = new TaskBuilder().withTaskName("Get clothes").withDueDate("9482442")
-                    .withStatus("undone").withBeginDate("4th street").build();
+            assignment = new TaskBuilder().withTaskName("Assignment for CS2103").withStatus("undone")
+                    .withDueDate("30042017").withTags("friends").build();
+            buymilk = new TaskBuilder().withTaskName("Buy milk").withStatus("done").withDueDate("11/11")
+                    .withTags("owesMoney", "friends").build();
+            creatework = new TaskBuilder().withTaskName("Create more work").withDueDate("now").withStatus("done")
+                    .build();
+            dumpmilk = new TaskBuilder().withTaskName("Dump milk").withDueDate("11-02 12:10").withStatus("undone")
+                    .build();
+            eatleftovers = new TaskBuilder().withTaskName("Eat leftovers").withDueDate("today").withStatus("done")
+                    .build();
+            findsocks = new TaskBuilder().withTaskName("Find socks").withDueDate("tomorrow").withStatus("undone")
+                    .build();
+            getclothes = new TaskBuilder().withTaskName("Get clothes").withDueDate("yesterday").withStatus("undone")
+                    .build();
 
             // Manually added
-            hangclothes = new TaskBuilder().withTaskName("Hang up clothes").withDueDate("8482424")
-                    .withStatus("done").withBeginDate("little india").build();
-            interviewprep = new TaskBuilder().withTaskName("Interview preparation").withDueDate("8482131")
-                    .withStatus("undone").withBeginDate("chicago ave").build();
+            hangclothes = new TaskBuilder().withTaskName("Hang up clothes").withDueDate("30/12/17").withStatus("done")
+                    .build();
+            interviewprep = new TaskBuilder().withTaskName("Interview preparation").withDueDate("03/31")
+                    .withStatus("undone").build();
         } catch (IllegalValueException e) {
             e.printStackTrace();
             assert false : "not possible";
