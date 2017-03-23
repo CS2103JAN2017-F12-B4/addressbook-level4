@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-public class DescriptionTest {
+public class TaskNameTest {
 
     @Test
     public void isValidName() {
@@ -13,13 +13,13 @@ public class DescriptionTest {
         assertFalse(TaskName.isValidName("")); // empty string
         assertFalse(TaskName.isValidName(" ")); // spaces only
         assertFalse(TaskName.isValidName("^")); // only non-alphanumeric characters
-        assertFalse(TaskName.isValidName("peter*")); // contains non-alphanumeric characters
+        assertFalse(TaskName.isValidName("homework*")); // contains non-alphanumeric characters
 
         // valid name
-        assertTrue(TaskName.isValidName("peter jack")); // alphabets only
+        assertTrue(TaskName.isValidName("kill jack")); // alphabets only
         assertTrue(TaskName.isValidName("12345")); // numbers only
-        assertTrue(TaskName.isValidName("peter the 2nd")); // alphanumeric characters
-        assertTrue(TaskName.isValidName("Capital Tan")); // with capital letters
-        assertTrue(TaskName.isValidName("David Roger Jackson Ray Jr 2nd")); // long names
+        assertTrue(TaskName.isValidName("get 2nd honor")); // alphanumeric characters
+        assertTrue(TaskName.isValidName("call Capital Tan")); // with capital letters
+        assertTrue(TaskName.isValidName("meet David Roger Jackson Ray Jr 2nd")); // long names
     }
 }

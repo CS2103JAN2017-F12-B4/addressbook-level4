@@ -15,7 +15,6 @@ import seedu.bulletjournal.commons.exceptions.IllegalValueException;
 import seedu.bulletjournal.commons.util.StringUtil;
 import seedu.bulletjournal.model.tag.Tag;
 import seedu.bulletjournal.model.tag.UniqueTagList;
-import seedu.bulletjournal.model.task.BeginDate;
 import seedu.bulletjournal.model.task.DateTime;
 import seedu.bulletjournal.model.task.Status;
 import seedu.bulletjournal.model.task.TaskName;
@@ -89,10 +88,12 @@ public class ParserUtil {
     /**
      * Parses a {@code Optional<String> address} into an
      * {@code Optional<Address>} if {@code address} is present.
+     * 
+     * @author A0127826Y
      */
-    public static Optional<BeginDate> parseAddress(Optional<String> address) throws IllegalValueException {
-        assert address != null;
-        return address.isPresent() ? Optional.of(new BeginDate(address.get())) : Optional.empty();
+    public static Optional<DateTime> parseStartDate(Optional<String> startDate) throws IllegalValueException {
+        assert startDate != null;
+        return startDate.isPresent() ? Optional.of(new DateTime(startDate.get())) : Optional.empty();
     }
 
     /**
