@@ -16,10 +16,10 @@ public class DateTime {
             + "((?iu)(today|tomorrow|yesterday))|"
             // Matches all cases of today, tomorrow, yesterday or
             + "(?<day>[0-9]{2})(/|-?)(?<month>[0-9]{2})(/|-?)(?<year>((19|20)?[0-9]{2})?)|"
-            // Matches DDMMYY(YY), DD-MM-YY(YY), DD/MM/YY(YY) numeric & mixed
+            // Matches DDMMYY(YY), DD-MM-YY(YY), DD/MM/YY(YY) numeric & mixed or
             // separators
             + "(<month>(/|-?)<day>(/|-?)<year>?)|"
-            // Matches MMDDYY(YY), MM-DD-YY(YY), MM/DD/YY(YY)
+            // Matches MMDDYY(YY), MM-DD-YY(YY), MM/DD/YY(YY) or
             + "(<year>(/|-?)<month>(/|-?)<day>?))?"
             // Matches (YY)YYMMDD, (YY)YY-MM-DD, (YY)YY/MM/DD numeric & mixed
             // separators
