@@ -1,5 +1,9 @@
 package seedu.bulletjournal.model.task;
 
+import java.util.Calendar;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import seedu.bulletjournal.commons.exceptions.IllegalValueException;
 
 /**
@@ -27,7 +31,10 @@ public class DateTime {
             + "\\s*((?<hour>2[0-3]|[01][0-9]):(?<minute>[0-5][0-9]):?(?<second>[0-5][0-9])?)?";
     // Matches hh:mm:ss, hh:mm with a space in front
 
-    public final String dateTime;
+    // TODO Support System format of string
+    // e.g. Wed May 02 20:48:32 EEST 2012
+
+    private final String dateTime;
 
     /**
      * Validates given dateTime.
@@ -38,7 +45,7 @@ public class DateTime {
     public DateTime(String dateTime) throws IllegalValueException {
         assert dateTime != null;
         String trimmedDateTime = dateTime.trim();
-        if (!isValidTagName(trimmedDateTime)) {
+        if (!isValidDateTime(trimmedDateTime)) {
             throw new IllegalValueException(MESSAGE_DATETIME_CONSTRAINTS);
         }
         this.dateTime = trimmedDateTime;
@@ -47,16 +54,57 @@ public class DateTime {
     /**
      * Returns true if a given string is a valid tag name.
      */
-    public static boolean isValidTagName(String test) {
-        return test.matches(DATETIME_VALIDATION_REGEX);
+    public static boolean isValidDateTime(String test) {
+        return !test.matches(DATETIME_INVALID_REGEX) && test.matches(DATETIME_VALID_REGEX);
     }
 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof DateTime // instanceof handles nulls
-                        && this.dateTime.equals(((DateTime) other).dateTime)); // state
-        // check
+                        && this.dateTime.equals(((DateTime) other).dateTime));
+        // state check
+    }
+
+    public Calendar getDateTime() {
+        Calendar date = Calendar.getInstance();
+
+        if (isValidDateTime(dateTime)) {
+            Pattern p = Pattern.compile(DATETIME_VALID_REGEX);
+            // get a matcher object
+            Matcher m = p.matcher(dateTime);
+            if (m.group("now") != null) {
+            }
+            if (m.group("word") != null) {
+
+                switch (m.group("word")) {
+                case "yesterday":
+                    date.add(Calendar.DATE, -1);
+                    break;
+                case "today":
+                    break;
+                case "tomorrow":
+                    date.add(Calendar.DATE, 1);
+                    break;
+                }
+            }
+            if (m.group("day") != null)
+                date.set(Calendar.DAY_OF_MONTH, Integer.parseInt(m.group("day")));
+            if (m.group("month") != null)
+                date.set(Calendar.MONTH, Integer.parseInt(m.group("month")));
+            if (m.group("year") != null)
+                date.set(Calendar.YEAR, Integer.parseInt(m.group("year")));
+            if (m.group("hour") != null)
+                date.set(Calendar.HOUR, Integer.parseInt(m.group("hour")));
+            if (m.group("min") != null)
+                date.set(Calendar.MINUTE, Integer.parseInt(m.group("min")));
+            if (m.group("sec") != null)
+                date.set(Calendar.SECOND, Integer.parseInt(m.group("sec")));
+            return date;
+        }
+
+        return null;
+
     }
 
     @Override
@@ -68,7 +116,8 @@ public class DateTime {
      * Format state as text for viewing.
      */
     public String toString() {
-        return '[' + dateTime + ']';
+        Calendar date = getDateTime();
+        return date.toString();
     }
 
 }
