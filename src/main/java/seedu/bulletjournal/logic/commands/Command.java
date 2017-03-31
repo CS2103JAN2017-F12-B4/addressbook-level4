@@ -9,6 +9,12 @@ import seedu.bulletjournal.model.Model;
  */
 public abstract class Command {
     protected Model model;
+    public static final String MESSAGE_UNDO_FAILURE = "Cannot undo";
+    /**
+     * @@author A0127826Y
+     */
+    public static final String MESSAGE_UNDO_SUCCESS = "Successfully undo";
+
 
     /**
      * Constructs a feedback message to summarise an operation that displayed a listing of tasks.
@@ -27,6 +33,15 @@ public abstract class Command {
      * @throws CommandException If an error occurs during command execution.
      */
     public abstract CommandResult execute() throws CommandException;
+
+    /**
+     * Undoes the command and return the result message.
+     *
+     * @return feedback message of which command is undone
+     * @throws CommandException if an error occurs during command execution.
+     * @@author A0127826Y
+     */
+    public abstract CommandResult undo() throws CommandException;
 
     /**
      * Provides any needed dependencies to the command.
