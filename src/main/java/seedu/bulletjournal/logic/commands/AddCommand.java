@@ -13,6 +13,7 @@ import seedu.bulletjournal.model.task.Status;
 import seedu.bulletjournal.model.task.Task;
 import seedu.bulletjournal.model.task.TaskName;
 import seedu.bulletjournal.model.task.UniqueTaskList;
+import seedu.bulletjournal.model.task.UniqueTaskList.TaskNotFoundException;
 
 /**
  * Adds a task to the address book.
@@ -48,6 +49,7 @@ public class AddCommand extends Command {
                 null : new BeginDate(begindate), new UniqueTagList(tagSet));
     }
 
+
     @Override
     public CommandResult execute() throws CommandException {
         assert model != null;
@@ -58,6 +60,21 @@ public class AddCommand extends Command {
             throw new CommandException(MESSAGE_DUPLICATE_TASK);
         }
 
+    }
+
+
+    /**
+     * @@author A0127826Y
+     */
+    @Override
+    public CommandResult undo() throws CommandException {
+        assert model != null;
+        try {
+            model.deleteTask(toAdd);
+            return new CommandResult(MESSAGE_UNDO_SUCCESS+" \"add "+toAdd.toString() + "\" command");
+        } catch (TaskNotFoundException e) {
+            throw new CommandException(MESSAGE_UNDO_FAILURE +" \"add "+toAdd.toString() + "\" command");
+        }
     }
 
 }
