@@ -47,4 +47,11 @@ public class DeleteCommand extends Command {
         return new CommandResult(String.format(MESSAGE_DELETE_TASK_SUCCESS, taskToDelete));
     }
 
+
+    @Override
+    public CommandResult undo() throws CommandException {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
 }

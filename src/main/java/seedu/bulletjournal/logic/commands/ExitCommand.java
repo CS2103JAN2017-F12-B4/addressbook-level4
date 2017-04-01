@@ -2,6 +2,7 @@ package seedu.bulletjournal.logic.commands;
 
 import seedu.bulletjournal.commons.core.EventsCenter;
 import seedu.bulletjournal.commons.events.ui.ExitAppRequestEvent;
+import seedu.bulletjournal.logic.commands.exceptions.CommandException;
 
 /**
  * Terminates the program.
@@ -16,6 +17,12 @@ public class ExitCommand extends Command {
     public CommandResult execute() {
         EventsCenter.getInstance().post(new ExitAppRequestEvent());
         return new CommandResult(MESSAGE_EXIT_ACKNOWLEDGEMENT);
+    }
+
+    @Override
+    public CommandResult undo() throws CommandException {
+        // TODO Auto-generated method stub
+        return null;
     }
 
 }

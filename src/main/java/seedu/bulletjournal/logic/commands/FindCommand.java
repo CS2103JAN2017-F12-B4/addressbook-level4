@@ -2,6 +2,8 @@ package seedu.bulletjournal.logic.commands;
 
 import java.util.Set;
 
+import seedu.bulletjournal.logic.commands.exceptions.CommandException;
+
 /**
  * Finds and lists all tasks in address book whose name contains any of the argument keywords.
  * Keyword matching is case sensitive.
@@ -25,6 +27,12 @@ public class FindCommand extends Command {
     public CommandResult execute() {
         model.updateFilteredTaskList(keywords);
         return new CommandResult(getMessageForTaskListShownSummary(model.getFilteredTaskList().size()));
+    }
+
+    @Override
+    public CommandResult undo() throws CommandException {
+        // TODO Auto-generated method stub
+        return null;
     }
 
 }

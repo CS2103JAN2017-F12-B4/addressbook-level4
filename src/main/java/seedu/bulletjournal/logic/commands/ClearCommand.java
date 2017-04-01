@@ -1,5 +1,6 @@
 package seedu.bulletjournal.logic.commands;
 
+import seedu.bulletjournal.logic.commands.exceptions.CommandException;
 import seedu.bulletjournal.model.TodoList;
 
 /**
@@ -16,5 +17,12 @@ public class ClearCommand extends Command {
         assert model != null;
         model.resetData(new TodoList());
         return new CommandResult(MESSAGE_SUCCESS);
+    }
+
+
+    @Override
+    public CommandResult undo() throws CommandException {
+        // TODO Auto-generated method stub
+        return null;
     }
 }

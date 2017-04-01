@@ -3,6 +3,7 @@ package seedu.bulletjournal.logic.commands;
 
 import seedu.bulletjournal.commons.core.EventsCenter;
 import seedu.bulletjournal.commons.events.ui.ShowHelpRequestEvent;
+import seedu.bulletjournal.logic.commands.exceptions.CommandException;
 
 /**
  * Format full help instructions for every command for display.
@@ -20,5 +21,11 @@ public class HelpCommand extends Command {
     public CommandResult execute() {
         EventsCenter.getInstance().post(new ShowHelpRequestEvent());
         return new CommandResult(SHOWING_HELP_MESSAGE);
+    }
+
+    @Override
+    public CommandResult undo() throws CommandException {
+        // TODO Auto-generated method stub
+        return null;
     }
 }

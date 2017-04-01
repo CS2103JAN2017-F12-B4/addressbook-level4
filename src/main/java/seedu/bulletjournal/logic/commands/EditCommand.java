@@ -163,4 +163,10 @@ public class EditCommand extends Command {
             return tags;
         }
     }
+
+    @Override
+    public CommandResult undo() throws CommandException {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }

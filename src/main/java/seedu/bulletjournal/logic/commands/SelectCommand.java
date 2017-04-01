@@ -41,4 +41,10 @@ public class SelectCommand extends Command {
 
     }
 
+    @Override
+    public CommandResult undo() throws CommandException {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
 }
