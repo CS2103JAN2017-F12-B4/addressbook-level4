@@ -38,6 +38,5 @@ public class ChangePathCommand extends Command {
         return new CommandResult("changed to new directory, restart of the application is required.");
     }
 
-    
 
 }

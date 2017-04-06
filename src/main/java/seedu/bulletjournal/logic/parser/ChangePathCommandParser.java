@@ -1,7 +1,6 @@
 /*@@author A0115959R*/
 package seedu.bulletjournal.logic.parser;
 
-
 import seedu.bulletjournal.logic.commands.ChangePathCommand;
 import seedu.bulletjournal.logic.commands.Command;
 
