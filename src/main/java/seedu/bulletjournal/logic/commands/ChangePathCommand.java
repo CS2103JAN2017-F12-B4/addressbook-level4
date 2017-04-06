@@ -2,7 +2,6 @@
 package seedu.bulletjournal.logic.commands;
 
 import java.io.IOException;
-import java.util.Set;
 
 import seedu.bulletjournal.commons.core.Config;
 import seedu.bulletjournal.commons.util.ConfigUtil;
@@ -36,7 +35,7 @@ public class ChangePathCommand extends Command {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        return new CommandResult("changed to new directory, restart of the application is required." );
+        return new CommandResult("changed to new directory, restart of the application is required.");
     }
 
     
