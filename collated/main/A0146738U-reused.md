@@ -115,6 +115,177 @@ public class ChangeDirectoryCommand extends Command {
         EventsCenter.getInstance().post(new FailedCommandAttemptedEvent());
     }
 ```
+###### \java\seedu\bulletjournal\logic\commands\RedoCommand.java
+``` java
+
+public class RedoCommand extends Command {
+    public static final String COMMAND_WORD = "redo";
+
+    public static final String MESSAGE_SUCCESS = "Redo successful: ";
+    public static final String MESSAGE_NO_MORE_REDO = "No more actions available to redo";
+
+    @Override
+    public CommandResult execute() throws CommandException {
+        HistoryManager historyManager = HistoryManager.getInstance();
+        String commandText;
+        try {
+            commandText = historyManager.redo();
+        } catch (Exception e) {
+            throw new CommandException(MESSAGE_NO_MORE_REDO);
+        }
+        return new CommandResult(MESSAGE_SUCCESS + commandText);
+    }
+}
+```
+###### \java\seedu\bulletjournal\logic\commands\UndoCommand.java
+``` java
+
+public class UndoCommand extends Command {
+    public static final String COMMAND_WORD = "undo";
+
+    public static final String MESSAGE_SUCCESS = "Undo successful: ";
+    public static final String MESSAGE_NO_MORE_UNDO = "No more actions available to undo";
+
+    @Override
+    public CommandResult execute() throws CommandException {
+        HistoryManager historyManager = HistoryManager.getInstance();
+        String commandText;
+        try {
+            commandText = historyManager.undo();
+        } catch (Exception e) {
+            throw new CommandException(MESSAGE_NO_MORE_UNDO);
+        }
+        return new CommandResult(MESSAGE_SUCCESS + commandText);
+    }
+}
+```
+###### \java\seedu\bulletjournal\logic\LogicManager.java
+``` java
+    @Override
+    public String getCommandText() {
+        return this.commandText;
+    }
+}
+```
+###### \java\seedu\bulletjournal\model\HistoryManager.java
+``` java
+
+/**
+ * Represents the History of user commands in this session
+ */
+public class HistoryManager extends ComponentManager {
+
+    private Model model;
+    private static HistoryManager instance = null;
+    private static final Logger logger = LogsCenter.getLogger(StorageManager.class);
+    private ArrayList<ReadOnlyTodoList> historyList;
+    private ArrayList<ReadOnlyTodoList> futureList;
+    private ArrayList<String> historyCommands;
+    private ArrayList<String> futureCommands;
+
+    protected HistoryManager() {
+        super();
+
+        historyList = new ArrayList<ReadOnlyTodoList>();
+        futureList = new ArrayList<ReadOnlyTodoList>();
+        historyCommands = new ArrayList<String>();
+        futureCommands = new ArrayList<String>();
+    }
+
+    public static HistoryManager getInstance() {
+        if (instance == null) {
+            instance = new HistoryManager();
+        }
+        return instance;
+    }
+
+    public void init(Model model) {
+        this.model = model;
+        TodoList taskManager = new TodoList(model.getTodoList());
+        historyList.add(taskManager);
+    }
+
+    @Subscribe
+    public void handleTaskManagerChangedEvent(TodoListChangedEvent event) {
+        TodoList taskManager = new TodoList(event.data);
+        String commandText = new String(event.commandText);
+        historyList.add(taskManager);
+        if (!commandText.equals(RedoCommand.COMMAND_WORD) && !commandText.equals(UndoCommand.COMMAND_WORD)) {
+            historyCommands.add(commandText);
+        }
+        if (!(commandText.equals(RedoCommand.COMMAND_WORD) || commandText.equals(UndoCommand.COMMAND_WORD))) {
+            futureList.clear();
+            futureCommands.clear();
+        }
+        logger.info(LogsCenter.getEventHandlingLogMessage(event,
+                ("Local data changed, updating history manager. Histories = " + historyList.size() + " Futures = "
+                        + futureList.size())));
+    }
+
+    @Subscribe
+    public void handleTaskManagerStorageDirectoryChangedEvent(FilePathChangedEvent event) {
+        historyList.clear();
+        futureList.clear();
+        historyCommands.clear();
+        futureCommands.clear();
+        logger.info(LogsCenter.getEventHandlingLogMessage(event,
+                ("Storage file location changed, resetting history. Histories = " + historyList.size() + " Futures = "
+                        + futureList.size())));
+    }
+
+    private HistoryItemPair getMostRecentHistory() {
+        if (historyList.size() < 2) {
+            throw new NullPointerException();
+        }
+        ReadOnlyTodoList taskManager = historyList.remove(historyList.size() - 1);
+        futureList.add(new TodoList(taskManager));
+        String commandText = historyCommands.remove(historyCommands.size() - 1);
+        futureCommands.add(commandText);
+        HistoryItemPair history = new HistoryItemPair(historyList.remove(historyList.size() - 1), commandText);
+        return history;
+    }
+
+    private HistoryItemPair getMostRecentFuture() {
+        if (futureList.size() < 1) {
+            throw new NullPointerException();
+        }
+        String commandText = futureCommands.remove(futureCommands.size() - 1);
+        historyCommands.add(commandText);
+        HistoryItemPair history = new HistoryItemPair(futureList.remove(futureList.size() - 1), commandText);
+        return history;
+    }
+
+    public String undo() {
+        HistoryItemPair t = getMostRecentHistory();
+        model.resetData(t.getTodoList());
+        return t.getCommandText();
+    }
+
+    public String redo() {
+        HistoryItemPair t = getMostRecentFuture();
+        model.resetData(t.getTodoList());
+        return t.getCommandText();
+    }
+}
+
+class HistoryItemPair {
+    private ReadOnlyTodoList taskManager;
+    private String commandText;
+
+    public HistoryItemPair(ReadOnlyTodoList tm, String text) {
+        taskManager = tm;
+        commandText = text;
+    }
+
+    public ReadOnlyTodoList getTodoList() {
+        return taskManager;
+    }
+
+    public String getCommandText() {
+        return commandText;
+    }
+}
+```
 ###### \java\seedu\bulletjournal\ui\StatusBarFooter.java
 ``` java
     @Subscribe
