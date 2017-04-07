@@ -85,7 +85,7 @@ public class HistoryManager extends ComponentManager {
         ReadOnlyTodoList taskManager = historyList.remove(historyList.size() - 1);
         futureList.add(new TodoList(taskManager));
         String commandText = historyCommands.remove(historyCommands.size() - 1);
-        futureCommands.add(new String(commandText));
+        futureCommands.add(commandText);
         HistoryItemPair history = new HistoryItemPair(historyList.remove(historyList.size() - 1), commandText);
         return history;
     }
@@ -95,7 +95,7 @@ public class HistoryManager extends ComponentManager {
             throw new NullPointerException();
         }
         String commandText = futureCommands.remove(futureCommands.size() - 1);
-        historyCommands.add(new String(commandText));
+        historyCommands.add(commandText);
         HistoryItemPair history = new HistoryItemPair(futureList.remove(futureList.size() - 1), commandText);
         return history;
     }
