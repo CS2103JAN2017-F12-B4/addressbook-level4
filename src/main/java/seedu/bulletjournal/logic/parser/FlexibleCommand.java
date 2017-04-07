@@ -13,7 +13,7 @@ public class FlexibleCommand {
         "delete d deletes del remove removes rm", "edit edits e", "change cd", "finish done complete",
         "exit exits close closes logout logouts quit q", "find finds f search searches lookup", "show showall",
         "help helps h manual instruction instructions", "list lists l ls display displays",
-        "select selects s choose chooses", "undo u", "redo r" };
+        "select selects s choose chooses"};
 
     /**
      * Constructor must take in a valid string input
