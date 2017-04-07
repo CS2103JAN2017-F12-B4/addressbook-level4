@@ -22,9 +22,8 @@ public class LogicManager extends ComponentManager implements Logic {
     private static LogicManager instance = null;
     private Model model;
     private Parser parser;
-    private String commandText;
-
     private Storage storage;
+    private String commandText;
 
     public LogicManager() {
     }
