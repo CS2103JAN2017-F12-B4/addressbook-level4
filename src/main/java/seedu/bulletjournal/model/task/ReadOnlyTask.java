@@ -1,5 +1,7 @@
 package seedu.bulletjournal.model.task;
 
+import java.util.Date;
+
 import seedu.bulletjournal.model.tag.UniqueTagList;
 
 /**
@@ -12,6 +14,7 @@ public interface ReadOnlyTask {
     DueDate getPhone();
     Status getStatus();
     BeginDate getAddress();
+    Date getSortDate();
 
 
     /**

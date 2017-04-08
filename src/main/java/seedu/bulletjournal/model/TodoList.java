@@ -69,6 +69,7 @@ public class TodoList implements ReadOnlyTodoList {
         assert newData != null;
         try {
             setTasks(newData.getTodoList());
+            tasks.sortTasks();
         } catch (UniqueTaskList.DuplicateTaskException e) {
             assert false : "AddressBooks should not have duplicate tasks";
         }
@@ -93,6 +94,7 @@ public class TodoList implements ReadOnlyTodoList {
     public void addTask(Task p) throws UniqueTaskList.DuplicateTaskException {
         syncMasterTagListWith(p);
         tasks.add(p);
+        tasks.sortTasks();
     }
 
     /**
@@ -119,6 +121,7 @@ public class TodoList implements ReadOnlyTodoList {
         // not tagged to any task
         // in the task list.
         tasks.updateTask(index, editedTask);
+        tasks.sortTasks();
     }
 
     /**

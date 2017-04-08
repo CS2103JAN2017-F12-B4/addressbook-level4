@@ -1,5 +1,6 @@
 package seedu.bulletjournal.model.task;
 
+import java.util.Date;
 import java.util.Objects;
 
 import seedu.bulletjournal.commons.util.CollectionUtil;
@@ -46,6 +47,21 @@ public class Task implements ReadOnlyTask {
     public TaskName getTaskName() {
         return taskName;
     }
+
+    //@@author A0105748B
+    @Override
+    public Date getSortDate() {
+        Date sort;
+        if (this.beginDate == null && this.dueDate == null) {
+            return null;
+        } else if (this.beginDate == null) {
+            sort = this.dueDate.value;
+        } else {
+            sort = this.beginDate.value;
+        }
+        return sort;
+    }
+    //@@author
 
     public void setPhone(DueDate dueDate) {
         assert dueDate != null;
