@@ -1,5 +1,7 @@
 package seedu.bulletjournal.testutil;
 
+import java.util.Date;
+
 import seedu.bulletjournal.model.tag.UniqueTagList;
 import seedu.bulletjournal.model.task.BeginDate;
 import seedu.bulletjournal.model.task.DueDate;
@@ -112,5 +114,11 @@ public class TestTask implements ReadOnlyTask {
         sb.append("s/" + this.getStatus().value + " ");
         this.getTags().asObservableList().stream().forEach(s -> sb.append("t/" + s.tagName + " "));
         return sb.toString();
+    }
+
+    @Override
+    public Date getSortDate() {
+        // TODO Auto-generated method stub
+        return null;
     }
 }

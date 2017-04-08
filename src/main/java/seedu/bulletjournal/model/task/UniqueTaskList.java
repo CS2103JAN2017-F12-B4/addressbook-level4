@@ -1,5 +1,6 @@
 package seedu.bulletjournal.model.task;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -45,6 +46,49 @@ public class UniqueTaskList implements Iterable<Task> {
         }
         internalList.add(toAdd);
     }
+
+    //@@author A0105748B
+    /*
+     * Sort the tasks of internalList according to beginDate and dueDate.
+     */
+    public void sortTasks() throws DuplicateTaskException {
+        List<Task> replacement = new ArrayList<Task>();
+        for (final ReadOnlyTask task : internalList) {
+            if (task.getSortDate() != null) {
+                replacement = addSortedTasks(replacement, new Task(task));
+            }
+        }
+        for (final ReadOnlyTask task : internalList) {
+            if (task.getSortDate() == null) {
+                replacement.add(new Task(task));
+            }
+        }
+        setTasks(replacement);
+    }
+
+    /*
+     * Add task to a always sorted list.
+     */
+    private List<Task> addSortedTasks(List<Task> taskList, Task taskToAdd) {
+        if (!taskList.isEmpty() && taskToAdd.getSortDate().before(taskList.get(0).getSortDate())) {
+            taskList.add(0, taskToAdd);
+            return taskList;
+        }
+        if (taskList.size() >= 2 &&
+                taskToAdd.getSortDate().after(taskList.get(0).getSortDate()) &&
+                taskToAdd.getSortDate().before(taskList.get(taskList.size() - 1).getSortDate())) {
+            for (int i = 0; i < taskList.size() - 1; i++) {
+                if (taskToAdd.getSortDate().after(taskList.get(i).getSortDate()) &&
+                        taskToAdd.getSortDate().before(taskList.get(i + 1).getSortDate())) {
+                    taskList.add(i + 1, taskToAdd);
+                    return taskList;
+                }
+            }
+        }
+        taskList.add(taskToAdd);
+        return taskList;
+    }
+    //@@author
 
     /**
      * Updates the task in the list at position {@code index} with
