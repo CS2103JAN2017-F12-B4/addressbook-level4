@@ -10,10 +10,11 @@ Role: Team lead <br>
 * Components in charge of: Model, Logic
 * Aspects/tools in charge of: Deliverables and deadlines <br>
 * Features implemented:
-   * [Add floating tasks](https://github.com/CS2103JAN2017-F12-B4/main/blob/master/docs/UserGuide.md#221-adding-a-floating-task-addf)
-   * [Add deadline tasks]
-(https://github.com/CS2103JAN2017-F12-B4/main/blob/master/docs/UserGuide.md#222-adding-a-deadline-task-addd)
-* Code written: [[functional code](https://github.com/CS2103JAN2017-F12-B4/main/blob/master/collated/main/A0146738U.md)][[test code](https://github.com/CS2103JAN2017-F12-B4/main/blob/master/collated/test/A0146738U.md)]
+   * [Change File Path Command](https://github.com/CS2103JAN2017-F12-B4/main/blob/master/docs/UserGuide.md#212-changing-the-filepath--change)
+   * [Undo Command](https://github.com/CS2103JAN2017-F12-B4/main/blob/master/docs/UserGuide.md#214-undo-a-task--undo)
+   * [Redo Command](https://github.com/CS2103JAN2017-F12-B4/main/blob/master/docs/UserGuide.md#215-redo-a-task--redo)
+  
+* Code written: [[functional code](https://github.com/CS2103JAN2017-F12-B4/main/blob/master/collated/main/A0146738U.md)][[test code](https://github.com/CS2103JAN2017-F12-B4/main/blob/master/collated/test/A0146738U.md)][[documentation](https://github.com/CS2103JAN2017-F12-B4/main/blob/master/collated/docs/A0146738U.md)]
 * Other major contributions:
    * Did initial refactoring from AddressBook to TodoList
    * Set up Travis, Appveyor, Coveralls and Codacy
