@@ -19,7 +19,7 @@ import seedu.bulletjournal.model.task.Task;
 /**
  * An Immutable TodoList that is serializable to XML format
  */
-@XmlRootElement(name = "addressbook")
+@XmlRootElement(name = "bulletjournal")
 public class XmlSerializableTodoList implements ReadOnlyTodoList {
 
     @XmlElement
