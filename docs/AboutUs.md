@@ -22,18 +22,6 @@ Role: Team lead <br>
 
 -----
 
-#### [Huynh Van Tu An](https://github.com/arishuynhvan)<br>
-<img src="images/Arishuynhvan.png" width="150"><br>
-Role: Developer <br>
-Responsibilities: Testing, Integration<br>
-* Components in charge of: Model, Logic
-* Aspects/tools in charge of:
-* Features implemented:
-* Code written:
-* Other major contributions:
-
------
-
 #### [Wang Yu](https://github.com/WangYu-g)<br>
 <img src="images/WangYu-g.png" width="150"><br>
 Role: Developer <br>
@@ -49,6 +37,18 @@ Role: Developer <br>
 	* Make tasks fields optional except task description
 	* Modify UI
 	* Design new GUI
+
+-----
+
+#### [Huynh Van Tu An](https://github.com/arishuynhvan)<br>
+<img src="images/Arishuynhvan.png" width="150"><br>
+Role: Developer <br>
+Responsibilities: Testing, Integration<br>
+* Components in charge of: Model, Logic
+* Aspects/tools in charge of:
+* Features implemented:
+* Code written:
+* Other major contributions:
 
 -----
 
