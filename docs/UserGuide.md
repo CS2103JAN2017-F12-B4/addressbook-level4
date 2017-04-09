@@ -218,6 +218,19 @@ Examples:
   Marks the 1st task as "done" in the results of the `find` command.
 <!-- @@author -->
 
+<!-- @@author A0146738U -->
+### 2.14. Undo a task : `undo`
+
+Undo a task in the todo list.<br>
+Format: `undo`
+
+### 2.15. Redo a task : `redo`
+
+Redo an undone task in the todo list.<br>
+Format: `redo`
+
+<!-- @@author -->
+
 ## 3. FAQ
 
 **Q**: How do I transfer my data to another Computer?<br>
@@ -252,5 +265,13 @@ Examples:
 
 * **Select** : `select INDEX` <br>
   e.g.`select 2`
+  
+* **Undo** : `undo` <br>
+  e.g.`undo`
+  
+* **Redo** : `redo` <br>
+  e.g.`redo`
+
+
 
 
