@@ -22,8 +22,8 @@ public class AddCommand extends Command {
     public static final String COMMAND_WORD = "add";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a task to the todo list. "
-            + "Parameters: TASKNAME d/DUEDATE s/STATUS b/BEGINDATE  [t/TAG]...\n" + "Example: " + COMMAND_WORD
-            + " Do CS assignment 4 d/tmr s/undone b/today";
+            + "Parameters: TASKNAME b/BEGINDATE d/DUEDATE s/STATUS [t/TAG]...\n" + "Example: " + COMMAND_WORD
+            + " Do CS assignment 4 b/today d/tmr s/undone";
 
     public static final String MESSAGE_SUCCESS = "New task added: %1$s";
     public static final String MESSAGE_DUPLICATE_TASK = "This task already exists in the todo list";

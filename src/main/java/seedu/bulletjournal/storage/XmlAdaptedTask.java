@@ -22,13 +22,13 @@ import seedu.bulletjournal.model.task.TaskName;
 public class XmlAdaptedTask {
 
     @XmlElement(required = true)
-    private String name;
+    private String description;
     @XmlElement(required = false)
-    private String phone;
+    private String status;
     @XmlElement(required = false)
-    private String email;
+    private String beginDate;
     @XmlElement(required = false)
-    private String address;
+    private String dueDate;
 
     @XmlElement
     private List<XmlAdaptedTag> tagged = new ArrayList<>();
@@ -46,10 +46,10 @@ public class XmlAdaptedTask {
      * @param source future changes to this will not affect the created XmlAdaptedTask
      */
     public XmlAdaptedTask(ReadOnlyTask source) {
-        name = source.getTaskName().fullName;
-        phone = source.getPhone() == null ? null : source.getPhone().toString();
-        email = source.getStatus() == null ? null : source.getStatus().value;
-        address = source.getAddress() == null ? null : source.getAddress().toString();
+        description = source.getTaskName().fullName;
+        dueDate = source.getPhone() == null ? null : source.getPhone().toString();
+        status = source.getStatus() == null ? null : source.getStatus().value;
+        beginDate = source.getAddress() == null ? null : source.getAddress().toString();
         tagged = new ArrayList<>();
         for (Tag tag : source.getTags()) {
             tagged.add(new XmlAdaptedTag(tag));
@@ -66,10 +66,10 @@ public class XmlAdaptedTask {
         for (XmlAdaptedTag tag : tagged) {
             taskTags.add(tag.toModelType());
         }
-        final TaskName taskName = new TaskName(this.name);
-        final DueDate dueDate = this.phone == null ? null : new DueDate(this.phone);
-        final Status status = this.email == null ? null : new Status(this.email);
-        final BeginDate beginDate = this.address == null ? null : new BeginDate(this.address);
+        final TaskName taskName = new TaskName(this.description);
+        final DueDate dueDate = this.dueDate == null ? null : new DueDate(this.dueDate);
+        final Status status = this.status == null ? null : new Status(this.status);
+        final BeginDate beginDate = this.beginDate == null ? null : new BeginDate(this.beginDate);
         final UniqueTagList tags = new UniqueTagList(taskTags);
         return new Task(taskName, dueDate, status, beginDate, tags);
     }
