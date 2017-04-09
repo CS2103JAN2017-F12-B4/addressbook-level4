@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bulletjournal>
+    <tasks>
+        <description>Buy new sandals</description>
+        <status>undone</status>
+        <beginDate>29-Apr-2016, 14:00 (Fri)</beginDate>
+        <tagged>life</tagged>
+    </tasks>
+    <tasks>
+        <description>Buy gift for Danny</description>
+        <status>undone</status>
+        <beginDate>30-Apr-2016, 14:00 (Sat)</beginDate>
+        <dueDate>30-Apr-2017, 17:00 (Sun)</dueDate>
+        <tagged>life</tagged>
+    </tasks>
+    <tasks>
+        <description>Move to new hostel</description>
+        <status>undone</status>
+        <beginDate>01-May-2016, 00:11 (Sun)</beginDate>
+        <tagged>life</tagged>
+    </tasks>
+    <tasks>
+        <description>Wash backpack</description>
+        <status>undone</status>
+        <beginDate>10-May-2016, 14:00 (Tue)</beginDate>
+        <tagged>life</tagged>
+    </tasks>
+    <tasks>
+        <description>Econs sharing session</description>
+        <status>undone</status>
+        <beginDate>16-May-2016, 09:00 (Mon)</beginDate>
+        <dueDate>16-May-2017, 12:00 (Tue)</dueDate>
+        <tagged>school</tagged>
+    </tasks>
+    <tasks>
+        <description>Buy eye drops</description>
+        <status>undone</status>
+        <beginDate>09-Jan-2017, 14:00 (Mon)</beginDate>
+        <dueDate>09-Jan-2017, 15:00 (Mon)</dueDate>
+        <tagged>life</tagged>
+    </tasks>
+    <tasks>
+        <description>Check tutorial answer</description>
+        <status>undone</status>
+        <beginDate>01-Mar-2017, 12:00 (Wed)</beginDate>
+        <dueDate>01-Mar-2017, 16:00 (Wed)</dueDate>
+        <tagged>school</tagged>
+    </tasks>
+    <tasks>
+        <description>Shopping for CNY</description>
+        <status>undone</status>
+        <beginDate>04-Mar-2017, 00:11 (Sat)</beginDate>
+        <dueDate>10-Feb-2018, 00:11 (Sat)</dueDate>
+        <tagged>life</tagged>
+    </tasks>
+    <tasks>
+        <description>Order Mcdonald</description>
+        <status>undone</status>
+        <beginDate>24-Mar-2017, 04:15 (Fri)</beginDate>
+        <tagged>life</tagged>
+    </tasks>
+    <tasks>
+        <description>Submit FYP report</description>
+        <status>undone</status>
+        <dueDate>24-Mar-2017, 16:00 (Fri)</dueDate>
+        <tagged>deadline</tagged>
+    </tasks>
+    <tasks>
+        <description>Buy planting pots</description>
+        <status>undone</status>
+        <beginDate>01-Apr-2017, 23:00 (Sat)</beginDate>
+        <tagged>life</tagged>
+    </tasks>
+    <tasks>
+        <description>Do laundry</description>
+        <status>undone</status>
+        <beginDate>08-Apr-2017, 13:00 (Sat)</beginDate>
+        <tagged>life</tagged>
+    </tasks>
+    <tasks>
+        <description>Buy watermelon</description>
+        <status>undone</status>
+        <beginDate>08-Apr-2017, 18:00 (Sat)</beginDate>
+        <tagged>life</tagged>
+    </tasks>
+    <tasks>
+        <description>Take shower</description>
+        <status>undone</status>
+        <beginDate>08-Apr-2017, 21:00 (Sat)</beginDate>
+        <tagged>life</tagged>
+    </tasks>
+    <tasks>
+        <description>Assignment for CS</description>
+        <status>undone</status>
+        <beginDate>09-Apr-2017, 14:00 (Sun)</beginDate>
+        <dueDate>09-Apr-2017, 16:00 (Sun)</dueDate>
+        <tagged>school</tagged>
+    </tasks>
+    <tasks>
+        <description>Play basketball</description>
+        <status>undone</status>
+        <beginDate>09-Apr-2017, 19:00 (Sun)</beginDate>
+        <dueDate>09-Apr-2017, 21:00 (Sun)</dueDate>
+        <tagged>life</tagged>
+    </tasks>
+    <tasks>
+        <description>project meeting</description>
+        <status>undone</status>
+        <beginDate>10-Apr-2017, 06:00 (Mon)</beginDate>
+        <tagged>school</tagged>
+    </tasks>
+    <tasks>
+        <description>Change test cases</description>
+        <status>undone</status>
+        <beginDate>10-Apr-2017, 08:00 (Mon)</beginDate>
+        <dueDate>10-Apr-2017, 10:00 (Mon)</dueDate>
+        <tagged>school</tagged>
+    </tasks>
+    <tasks>
+        <description>Watch webcast</description>
+        <status>undone</status>
+        <beginDate>10-Apr-2017, 09:00 (Mon)</beginDate>
+        <dueDate>10-Apr-2017, 21:00 (Mon)</dueDate>
+        <tagged>school</tagged>
+    </tasks>
+    <tasks>
+        <description>Submit cs project</description>
+        <status>undone</status>
+        <dueDate>10-Apr-2017, 12:00 (Mon)</dueDate>
+        <tagged>deadline</tagged>
+    </tasks>
+    <tasks>
+        <description>go get a drink</description>
+        <status>undone</status>
+        <beginDate>10-Apr-2017, 12:15 (Mon)</beginDate>
+        <tagged>life</tagged>
+    </tasks>
+    <tasks>
+        <description>Clean aircon</description>
+        <status>undone</status>
+        <beginDate>10-Apr-2017, 13:00 (Mon)</beginDate>
+        <dueDate>10-Apr-2017, 14:00 (Mon)</dueDate>
+        <tagged>life</tagged>
+    </tasks>
+    <tasks>
+        <description>CS quiz</description>
+        <status>undone</status>
+        <beginDate>10-Apr-2017, 14:00 (Mon)</beginDate>
+        <dueDate>10-Apr-2017, 15:00 (Mon)</dueDate>
+        <tagged>school</tagged>
+    </tasks>
+    <tasks>
+        <description>Dinner with girlfriend</description>
+        <status>undone</status>
+        <beginDate>10-Apr-2017, 18:00 (Mon)</beginDate>
+        <dueDate>10-Apr-2017, 21:00 (Mon)</dueDate>
+        <tagged>life</tagged>
+    </tasks>
+    <tasks>
+        <description>Internship report</description>
+        <status>undone</status>
+        <dueDate>10-Apr-2017, 23:59 (Mon)</dueDate>
+        <tagged>deadline</tagged>
+    </tasks>
+    <tasks>
+        <description>CCA meeting</description>
+        <status>undone</status>
+        <beginDate>15-Apr-2017, 10:00 (Sat)</beginDate>
+        <dueDate>15-Apr-2017, 12:00 (Sat)</dueDate>
+        <tagged>cca</tagged>
+    </tasks>
+    <tasks>
+        <description>Relocate plants</description>
+        <status>undone</status>
+        <beginDate>16-Apr-2017, 17:00 (Sun)</beginDate>
+        <tagged>life</tagged>
+    </tasks>
+    <tasks>
+        <description>3241 project due</description>
+        <status>undone</status>
+        <dueDate>17-Apr-2017, 23:59 (Mon)</dueDate>
+        <tagged>deadline</tagged>
+    </tasks>
+    <tasks>
+        <description>FYP presentation</description>
+        <status>undone</status>
+        <beginDate>20-Apr-2017, 12:00 (Thu)</beginDate>
+        <dueDate>20-Apr-2017, 16:00 (Thu)</dueDate>
+        <tagged>school</tagged>
+    </tasks>
+    <tasks>
+        <description>Study hacking</description>
+        <status>undone</status>
+        <beginDate>27-Apr-2017, 09:00 (Thu)</beginDate>
+        <dueDate>10-Apr-2017, 16:00 (Mon)</dueDate>
+        <tagged>life</tagged>
+    </tasks>
+    <tasks>
+        <description>Apply for volunteer</description>
+        <status>undone</status>
+        <dueDate>27-Apr-2017, 23:59 (Thu)</dueDate>
+        <tagged>deadline</tagged>
+    </tasks>
+    <tasks>
+        <description>Buy new laptop</description>
+        <status>undone</status>
+        <beginDate>29-Apr-2017, 14:00 (Sat)</beginDate>
+        <tagged>life</tagged>
+    </tasks>
+    <tasks>
+        <description>Print out pyp</description>
+        <status>undone</status>
+        <beginDate>30-Apr-2017, 07:00 (Sun)</beginDate>
+        <dueDate>30-Apr-2017, 08:00 (Sun)</dueDate>
+        <tagged>school</tagged>
+    </tasks>
+    <tasks>
+        <description>Revise for finals</description>
+        <status>undone</status>
+        <beginDate>30-Apr-2017, 12:00 (Sun)</beginDate>
+        <dueDate>05-May-2017, 16:00 (Fri)</dueDate>
+        <tagged>school</tagged>
+    </tasks>
+    <tasks>
+        <description>Richard birthday</description>
+        <status>undone</status>
+        <beginDate>20-May-2017, 00:00 (Sat)</beginDate>
+        <tagged>life</tagged>
+    </tasks>
+    <tasks>
+        <description>Fly to Taipei</description>
+        <status>undone</status>
+        <beginDate>01-Jun-2017, 10:00 (Thu)</beginDate>
+        <dueDate>01-Jun-2017, 14:00 (Thu)</dueDate>
+        <tagged>travel</tagged>
+    </tasks>
+    <tasks>
+        <description>Buy souvenir for friends</description>
+        <status>undone</status>
+        <beginDate>01-Jun-2017, 14:00 (Thu)</beginDate>
+        <dueDate>10-Jun-2017, 15:00 (Sat)</dueDate>
+        <tagged>travel</tagged>
+    </tasks>
+    <tasks>
+        <description>Visit night markets</description>
+        <status>undone</status>
+        <beginDate>01-Jun-2017, 19:00 (Thu)</beginDate>
+        <dueDate>01-Jun-2017, 23:00 (Thu)</dueDate>
+        <tagged>travel</tagged>
+    </tasks>
+    <tasks>
+        <description>Bus to Hualian</description>
+        <status>undone</status>
+        <beginDate>10-Jun-2017, 15:00 (Sat)</beginDate>
+        <dueDate>10-Jun-2017, 18:00 (Sat)</dueDate>
+        <tagged>travel</tagged>
+    </tasks>
+    <tasks>
+        <description>Book hotel in Beijing</description>
+        <status>undone</status>
+        <beginDate>10-Jun-2017, 16:00 (Sat)</beginDate>
+        <tagged>travel</tagged>
+    </tasks>
+    <tasks>
+        <description>Ride bicycle</description>
+        <status>undone</status>
+        <beginDate>10-Jun-2017, 19:00 (Sat)</beginDate>
+        <dueDate>11-Jun-2017, 01:00 (Sun)</dueDate>
+        <tagged>travel</tagged>
+    </tasks>
+    <tasks>
+        <description>Fly to Tianjin</description>
+        <status>undone</status>
+        <beginDate>15-Jun-2017, 12:00 (Thu)</beginDate>
+        <dueDate>15-Jun-2017, 17:00 (Thu)</dueDate>
+        <tagged>travel</tagged>
+    </tasks>
+    <tasks>
+        <description>Internship presentation</description>
+        <status>undone</status>
+        <beginDate>20-Jun-2017, 10:00 (Tue)</beginDate>
+        <dueDate>20-Jun-2017, 12:00 (Tue)</dueDate>
+        <tagged>work</tagged>
+    </tasks>
+    <tasks>
+        <description>Site visit</description>
+        <status>undone</status>
+        <beginDate>20-Jun-2017, 12:00 (Tue)</beginDate>
+        <dueDate>20-Jun-2017, 14:00 (Tue)</dueDate>
+        <tagged>work</tagged>
+    </tasks>
+    <tasks>
+        <description>Watch Beijing opera</description>
+        <status>undone</status>
+        <beginDate>20-Jun-2017, 19:00 (Tue)</beginDate>
+        <dueDate>20-Jun-2017, 09:30 (Tue)</dueDate>
+        <tagged>travel</tagged>
+    </tasks>
+    <tasks>
+        <description>Fly to Paris</description>
+        <status>undone</status>
+        <beginDate>10-Jul-2017, 02:00 (Mon)</beginDate>
+        <dueDate>10-Jul-2017, 11:00 (Mon)</dueDate>
+        <tagged>travel</tagged>
+    </tasks>
+    <tasks>
+        <description>Visit London bridge</description>
+        <status>undone</status>
+        <beginDate>13-Jul-2017, 03:00 (Thu)</beginDate>
+        <dueDate>13-Jul-2017, 05:00 (Thu)</dueDate>
+        <tagged>travel</tagged>
+    </tasks>
+    <tasks>
+        <description>Google interview</description>
+        <status>undone</status>
+        <beginDate>01-May-2018, 00:11 (Tue)</beginDate>
+        <tagged>work</tagged>
+    </tasks>
+    <tasks>
+        <description>Read new novel</description>
+        <tagged>life</tagged>
+    </tasks>
+    <tasks>
+        <description>Call mom</description>
+        <tagged>life</tagged>
+    </tasks>
+    <tags>school</tags>
+    <tags>life</tags>
+    <tags>deadline</tags>
+    <tags>cca</tags>
+    <tags>work</tags>
+    <tags>travel</tags>
+</bulletjournal>
